@@ -18,6 +18,11 @@ class PhonebookController extends Controller
         //
     }
 
+    public function getdata() {
+
+        return Phonebook::all();
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -73,9 +78,15 @@ class PhonebookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PhonebookRequest $request)
     {
-        //
+        $pb = Phonebook::find($request->id);
+        $pb->name = $request->name;
+        $pb->email = $request->email;
+        $pb->phone = $request->phone;
+
+        $pb->save();
+    
     }
 
     /**

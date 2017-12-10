@@ -1,13 +1,13 @@
 <template>
 	
-<div class="modal fade" id="myModal" role="dialog">
+<div class="modal fade" id="myModal_3" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Add all the Details</h4>
+          <h4 class="modal-title">Update {{ list.name }} 's the Details</h4>
         </div>
         <div class="modal-body">
           <form action="">
@@ -41,7 +41,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success" @click="save()" data-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-success" @click="update()" data-dismiss="modal">Update</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -59,11 +59,7 @@
 
       return {
 
-        list: {
-          name: '',
-          email: '',
-          phone: ''
-        },
+        list: { },
 
         errors: {}
       }
@@ -71,8 +67,8 @@
 
     methods: {
 
-      save() {
-         axios.post('/phonebook', this.$data.list)
+      update() {
+         axios.patch(`/phonebook/${this.list.id}`, this.$data.list)
         .then((response) => console.log(response))
         .catch((error) => this.errors = error.response.data.errors)
       }

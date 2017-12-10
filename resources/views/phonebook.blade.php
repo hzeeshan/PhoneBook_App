@@ -12,7 +12,7 @@
 			<div class="container">
 
 			  <router-view></router-view>
-			  <Add></Add>
+			  
 
 		<Myfooter></Myfooter>
 		</div>
