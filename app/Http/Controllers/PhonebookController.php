@@ -20,7 +20,7 @@ class PhonebookController extends Controller
 
     public function getdata() {
 
-        return Phonebook::all();
+        return Phonebook::orderBy('name', 'ASC')->get();
     }
 
     /**
@@ -97,6 +97,6 @@ class PhonebookController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Phonebook::where('id', $id)->delete();
     }
 }

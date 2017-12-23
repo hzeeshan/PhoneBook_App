@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Larevl</title>
+	<title>Larvel</title>
 	<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
